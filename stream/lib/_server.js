@@ -10,14 +10,14 @@ const NALseparator    = new Buffer([0,0,0,1]);//NAL break
 
 class _Server {
 
-  constructor(server, options) {
+  constructor(httpServer, options) {
 
     this.options = merge({
         width : 800,
         height: 480,
     }, options);
 
-    this.wss = new WebSocketServer({ server });
+    this.wss = new WebSocketServer({ server: httpServer });
 
     this.new_client = this.new_client.bind(this);
     this.start_feed = this.start_feed.bind(this);
