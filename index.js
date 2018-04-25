@@ -1,3 +1,5 @@
-const servo = require("./servo.js");
+// Imports
+const socket = require("./socket.js");
 
-servo.center();
+// Init functions
+socket.init();

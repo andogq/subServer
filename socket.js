@@ -1,12 +1,19 @@
-
+// Imports
 const socketio = require("socket.io");
 
-const server = socketio.listen(3000);
+// Globals
+let server;
 
-server.on("connection", (socket) => {
-    console.log("connection");
+// Init function
+function init() {
+    console.log("Starting websocket server");
+    server = socketio.listen(3000);
+    console.log("Started websocket server. Awaiting connection");
 
-    socket.on("message", (data) => {
-        console.log(data);
+    // Connection listener
+    server.on("connection", (newSocket) => {
+        console.log("Connected");
     });
-});
+}
+
+module.exports.init = init;
